@@ -14,22 +14,25 @@ Usage
 *****
 
 General definition for MultiPanel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
   [hcm]multipanel,multimode,id_module[/hcm]
 
+  [hcm]multipanel,true,"memberpanel"[/hcm] //example
 
- - multimode - panel expansion mode
+- multimode - panel expansion mode
    - true - expanding multiple items simultaneously
    - false - expand only one item at a time
- - id_modulu - identifier of the module to be loaded
+- id_modulu - identifier of the module to be loaded
 
 
 Shorthand for HCM MemberPanel (usermenu with avatar)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
-  [hcm]multipanel,true,"memberpanel"[/hcm]
+
   [hcm]memberpanel[/hcm]
 
 
