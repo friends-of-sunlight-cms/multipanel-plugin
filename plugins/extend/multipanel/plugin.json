@@ -1,0 +1,32 @@
+{
+    "$schema": "../../../system/schema/extend.json",
+    "name": "MultiPanel",
+    "description": "Extended and expandable user menu.",
+    "version": "1.0.0",
+    "authors": [
+        {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
+    ],
+    "environment": {
+        "system": "^8.0"
+    },
+    "config_defaults": {
+        "rounded_corners": true,
+        "mp_compact_mode": true,
+        "mp_show_usergroup": true,
+        "mp_show_unread_messages": true
+    },
+    "actions": {
+        "config": "ConfigAction"
+    },
+    "langs": {
+        "multipanel": "lang"
+    },
+    "events.web": [
+        {"event": "tpl.head", "script": "event/head_assets.php"},
+        {"event": "multipanel.memberpanel.items", "script": "event/tabs/memberpanel.php", "priority": 9999}
+    ],
+    "hcm": {
+        "multipanel": {"script": "hcm/multipanel.php"},
+        "memberpanel": {"script": "hcm/memberpanel.php"}
+    }
+}
