@@ -35,6 +35,11 @@ Shorthand for HCM MemberPanel (usermenu with avatar)
 
   [hcm]memberpanel[/hcm]
 
+Events
+******
+
+- ``multipanel.items`` - args: &items, &hide_first_multi_label
+- ``multipanel.<id_module>.items`` - args: &items, &hide_first_multi_label
 
 Installation
 ************
