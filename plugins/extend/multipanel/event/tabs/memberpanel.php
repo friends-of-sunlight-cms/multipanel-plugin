@@ -31,8 +31,9 @@ return function (array $args) {
             . '</span>';
 
         $compactMode = $config['mp_compact_mode'] ? ' compact' : '';
+        $msgCount = User::getUnreadPmCount();
 
-        $profileContent = _buffer(function () use ($config, $avatar, $name, $group, $compactMode) { ?>
+        $profileContent = _buffer(function () use ($config, $avatar, $name, $group, $compactMode, $msgCount) { ?>
             <div class="user-detail<?= $compactMode ?>">
                 <div class="user-avatar"><?= $avatar ?></div>
                 <div class="user-info">
@@ -41,7 +42,11 @@ return function (array $args) {
                 </div>
             </div>
             <?php if ($config['mp_show_unread_messages']): ?>
-                <div class="user-messages<?= $compactMode ?>"><?= _lang('multipanel.hcm.messages', ['%msgcount%' => User::getUnreadPmCount()]) ?></div>
+                <div class="user-messages<?= $compactMode ?>">
+                    <?= ($msgCount > 0 ? '<a href="' . _e(Router::module('messages')) . '">' : '') ?>
+                    <?= _lang('multipanel.hcm.messages', ['%msgcount%' => $msgCount]) ?>
+                    <?= ($msgCount > 0 ? '</a>' : '') ?>
+                </div>
             <?php endif; ?>
         <?php });
 
