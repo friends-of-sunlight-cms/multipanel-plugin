@@ -3,6 +3,7 @@
 use Sunlight\Core;
 use Sunlight\Extend;
 use Sunlight\Hcm;
+use Sunlight\Util\Form;
 
 return function (bool $multiple = false, string $module = '') {
     Hcm::normalizeArgument($multiple, 'bool');
@@ -29,7 +30,10 @@ return function (bool $multiple = false, string $module = '') {
             <?php $i = 1;
             foreach ($items as $id => $item): ?>
                 <div class="mptab mptab-<?= $id ?>">
-                    <input type="<?= $multiple ? 'checkbox' : 'radio' ?>" name="accordion-<?= Hcm::$uid ?>" id="mp<?= Hcm::$uid ?>tab<?= $i ?>"<?= ($i === 1 ? ' checked' : '') ?>>
+                    <?= Form::input(($multiple ? 'checkbox' : 'radio'), 'accordion-' . Hcm::$uid, null, [
+                            'id' => 'mp' . Hcm::$uid . 'tab' . $i,
+                            'checked' => ($i === 1),
+                    ])?>
 
                     <?php if ($multiple && $i == 1 && $hideFirstMultiLabel): ?>
                     <?php else: ?>
